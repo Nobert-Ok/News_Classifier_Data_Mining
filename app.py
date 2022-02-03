@@ -9,9 +9,7 @@ label_enc = LabelEncoder()
 
 # clean_doc=pickle.load(open('clean_doc.obj','rb'))
 tfid= pickle.load(open('Tfidfmodels.pkl','rb'))
-model=pickle.load(open('kmeanmodel.pkl','rb'))
-data= pd.read_csv('https://raw.githubusercontent.com/EngrAhmadUmar/DataMining/main/news.csv')
-      
+model=pickle.load(open('kmeanmodel.pkl','rb'))      
 # front end elements of the web page 
 html_temp = """ 
 <div style ="background-color:blue;padding:5px;"> 
@@ -22,7 +20,7 @@ st.markdown(html_temp, unsafe_allow_html = True)
 default_value_goes_here = ""
 Content = st.text_area("Please enter news from any source below: ", default_value_goes_here)
 result =""
-data= pd.read_csv('https://raw.githubusercontent.com/EngrAhmadUmar/DataMining/main/news.csv')
+data= pd.read_csv('https://raw.githubusercontent.com/Diane10/news_classifier/main/Africa_news_combined_dataset%20-%20Sheet1.csv')
 data["label"] = label_enc.fit_transform(data[["label"]])  
 # when 'Predict' is clicked, make the prediction and store it 
 if st.button("Predict"): 
