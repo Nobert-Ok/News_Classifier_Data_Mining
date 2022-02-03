@@ -26,7 +26,7 @@ data["label"] = label_enc.fit_transform(data[["label"]])
 if st.button("Predict"): 
   pred = model.predict(tfid.transform([Content]))
   if pred==1:
-    st.write('This news article is on culture, celebreties or art.')   
+    st.write('This news article is on politics.')   
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
     st.dataframe(data_pred['links'].unique())
@@ -37,7 +37,7 @@ if st.button("Predict"):
     data_pred = data.loc[(data['label'] == pred)]
     st.dataframe(data_pred['links'].unique())
   elif pred==2:
-    st.write('This news article is on politics') 
+    st.write('This news article is on culture') 
     pred= int(pred)
     term="pol"
     pred= int(pred)
