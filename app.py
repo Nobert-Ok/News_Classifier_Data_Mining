@@ -27,17 +27,20 @@ if st.button("Predict"):
   pred = model.predict(tfid.transform([Content]))
   if pred==1:
     st.write('This news article is on politics.')   
+    st.write('Below is the list of related links similar to your politics news')   
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
     st.dataframe(data_pred['links'].unique())
   elif pred==0:
     st.write('This news article is on business')
+    st.write('Below is the list of related links similar to your business news')   
     term="business"
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
     st.dataframe(data_pred['links'].unique())
   elif pred==2:
     st.write('This news article is on culture') 
+    st.write('Below is the list of related links similar to your culture news')   
     pred= int(pred)
     term="pol"
     pred= int(pred)
@@ -45,6 +48,7 @@ if st.button("Predict"):
     st.dataframe(data_pred['links'].unique())
   elif pred==3:
     st.write('This news article is on sports')
+    st.write('Below is the list of related links similar to your sports news')   
     pred= int(pred)
     term='sport'
     data_pred = data.loc[(data['label'] == pred)]
