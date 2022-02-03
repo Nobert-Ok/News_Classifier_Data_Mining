@@ -14,7 +14,7 @@ data= pd.read_csv('https://raw.githubusercontent.com/EngrAhmadUmar/DataMining/ma
       
 # front end elements of the web page 
 html_temp = """ 
-<div style ="background-color:red;padding:13px"> 
+<div style ="background-color:blue;padding:5px"> 
 <h1 style ="color:black;text-align:center;">Streamlit New Article Clustering App</h1> 
 </div> 
 """ 
