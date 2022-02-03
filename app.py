@@ -29,26 +29,23 @@ if st.button("Predict"):
     st.write('This news article is on culture, celebreties or art.')   
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
-    st.dataframe(data_pred['source_url'].unique())
+    st.dataframe(data_pred['links'].unique())
   elif pred==0:
     st.write('This news article is on business')
     term="business"
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
-    # result_df= data_pred[data_pred['source_url'].str.contains(term)]
-    st.dataframe(data_pred['source_url'].unique())
+    st.dataframe(data_pred['links'].unique())
   elif pred==2:
     st.write('This news article is on politics') 
     pred= int(pred)
     term="pol"
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
-    # result_df= data_pred[data_pred['source_url'].str.contains(term)]
-    st.dataframe(data_pred['source_url'].unique())
+    st.dataframe(data_pred['links'].unique())
   elif pred==3:
     st.write('This news article is on sports')
     pred= int(pred)
     term='sport'
     data_pred = data.loc[(data['label'] == pred)]
-    # result_df= data_pred[data_pred['source_url'].str.contains(term)]
-    st.dataframe(data_pred['source_url'].unique())
+    st.dataframe(data_pred['links'].unique())
