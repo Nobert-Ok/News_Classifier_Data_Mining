@@ -20,7 +20,7 @@ html_temp = """
 """ 
 st.markdown(html_temp, unsafe_allow_html = True) 
 default_value_goes_here = ""
-Content = st.text_area("Please enter label in the text area below: ", default_value_goes_here)
+Content = st.text_area("Please enter news from any source below: ", default_value_goes_here)
 result =""
 data= pd.read_csv('https://raw.githubusercontent.com/EngrAhmadUmar/DataMining/main/news.csv')
 data["label"] = label_enc.fit_transform(data[["label"]])  
@@ -28,19 +28,19 @@ data["label"] = label_enc.fit_transform(data[["label"]])
 if st.button("Predict"): 
   pred = model.predict(tfid.transform([Content]))
   if pred==1:
-    st.write('This article is about culture, celebreties or art.')   
+    st.write('This news article is on culture, celebreties or art.')   
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
     st.dataframe(data_pred['source_url'].unique())
   elif pred==0:
-    st.write('Article is a business article')
+    st.write('This news article is on business')
     term="business"
     pred= int(pred)
     data_pred = data.loc[(data['label'] == pred)]
     # result_df= data_pred[data_pred['source_url'].str.contains(term)]
     st.dataframe(data_pred['source_url'].unique())
   elif pred==2:
-    st.write('Article is a political article') 
+    st.write('This news article is on politics') 
     pred= int(pred)
     term="pol"
     pred= int(pred)
@@ -48,7 +48,7 @@ if st.button("Predict"):
     # result_df= data_pred[data_pred['source_url'].str.contains(term)]
     st.dataframe(data_pred['source_url'].unique())
   elif pred==3:
-    st.write('Article is a sport article')
+    st.write('This news article is on sports')
     pred= int(pred)
     term='sport'
     data_pred = data.loc[(data['label'] == pred)]
